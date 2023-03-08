@@ -5,8 +5,6 @@ openai.api_key = "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"
 start_sequence = "\nAI:"
 restart_sequence = "\nYou:"
 
-#prompt=input("輸入問題=>")
-
 def chat_prompt(prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
@@ -18,5 +16,4 @@ def chat_prompt(prompt):
         presence_penalty=0.6,
         stop=[" You:", " AI:"]
     )
-    print(response.choices[0].text)
-chat_prompt("how are you")
+    return response.choices[0].text
