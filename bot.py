@@ -19,7 +19,7 @@ async def thelp(ctx):
     embed.add_field(name="+set", value="set bot temperature level 0.0~1.0", inline=False)
     embed.add_field(name="+now", value="show now bot temperature default 0.8", inline=False)
     embed.add_field(name="+thelp", value="show this list", inline=False)
-    await ctx.send(embed=embed)
+    await ctx.reply(embed=embed)
 
 @bot.command(name='now')
 async def now(ctx):
