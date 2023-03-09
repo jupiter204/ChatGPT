@@ -5,11 +5,11 @@ openai.api_key = "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"
 start_sequence = "\nAI:"
 restart_sequence = "\nYou:"
 
-def chat_prompt(prompt):
+def chat_prompt(level,prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
-        temperature=0.9,
+        temperature=level,
         max_tokens=4000,
         top_p=1,
         frequency_penalty=0,
