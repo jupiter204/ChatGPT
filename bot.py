@@ -29,7 +29,7 @@ async def now(ctx):
 async def set(ctx):
     message= ctx.message.content
     global level
-    level = "" + message[6 : len(message)]
+    level = float("" + message[5 : len(message)])
     print(f'{ctx.author} set temperature to {level}')
     await ctx.reply(f'set temperature to {level}')
 
