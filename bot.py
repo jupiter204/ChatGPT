@@ -1,8 +1,8 @@
+import os
 import discord
 from discord.ext import commands
 from datetime import datetime, timezone, timedelta
 from chat import chat_prompt
-import os
 from dotenv import load_dotenv
 
 load_dotenv()

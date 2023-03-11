@@ -1,5 +1,5 @@
-import requests
 import os
+import requests
 import urllib.request
 import zipfile
 import shutil
