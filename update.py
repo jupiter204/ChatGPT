@@ -2,6 +2,7 @@ import requests
 import os
 import urllib.request
 import zipfile
+import shutil
 
 web_info=requests.get('https://raw.githubusercontent.com/jupiter204/ChatGPT/main/info.txt')
 
@@ -26,5 +27,8 @@ if web_info != info:
     for g in get_files:
         os.replace(file_source + g, file_destination + g)
 
+    shutil.rmtree('./ChatGPT.zip')
+    shutil.rmtree('./ChatGPT-main')
+    
     print('done')
-print(f'now version=>{web_info}')
+print(f'now version=>{web_info.text}')
