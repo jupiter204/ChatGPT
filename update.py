@@ -27,7 +27,7 @@ if web_info != info:
     for g in get_files:
         os.replace(file_source + g, file_destination + g)
 
-    shutil.rmtree('./ChatGPT.zip')
+    os.remove('./ChatGPT.zip')
     shutil.rmtree('./ChatGPT-main')
     
     print('done')
