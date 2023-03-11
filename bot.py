@@ -45,6 +45,13 @@ async def talk(ctx):
     print(f'{ctx.author} have a require')
     message = ctx.message.content
     user_message = "" + message[6 : len(message)]
-    await ctx.reply(f'{chat_prompt(level,user_message)}\n:from ChatGPT')
+    await ctx.reply(f'{chat_prompt(level,user_message)}\n:from ChatGPT')    
+
+@bot.command(name='stalk')
+async def talk(ctx):
+    print(f'{ctx.author} have a require')
+    message = ctx.message.content
+    user_message = "" + message[6 : len(message)]
+    await ctx.author.send(f'{chat_prompt(level,user_message)}\n:from ChatGPT')
 
 bot.run(discord_key)
