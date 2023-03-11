@@ -2,6 +2,11 @@ import discord
 from discord.ext import commands
 from datetime import datetime, timezone, timedelta
 from chat import chat_prompt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+discord_key=os.getenv("discord")
 
 bot = commands.Bot(command_prefix='+',intents=discord.Intents.all())
 
@@ -40,4 +45,4 @@ async def talk(ctx):
     user_message = "" + message[6 : len(message)]
     await ctx.reply(f'{chat_prompt(level,user_message)}\n:from ChatGPT')
 
-bot.run('OTczMTQ1MDkyOTgwMzc1NTUy.GeG4tf.0dZKUVRLTBixpBXqF47EL6dzMMmR7wf6VUQb6U')
+bot.run(discord_key)

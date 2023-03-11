@@ -1,6 +1,9 @@
 import openai
+import os
+from dotenv import load_dotenv
 
-openai.api_key = "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"
+load_dotenv()
+openai.api_key = os.getenv("openai")
 
 start_sequence = "\nAI:"
 restart_sequence = "\nYou:"
