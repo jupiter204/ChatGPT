@@ -19,11 +19,11 @@ async def on_ready():
 @bot.command(name='thelp')
 async def thelp(ctx):
     embed=discord.Embed(title="help list", color=0x1494f5,timestamp=datetime.now(timezone(timedelta(hours=+8))))
-    embed.set_author(name="chatBot")
-    embed.add_field(name="+talk", value="chat with ChatGPT", inline=False)
-    embed.add_field(name="+set", value="set bot temperature level 0.0~1.0", inline=False)
-    embed.add_field(name="+now", value="show now bot temperature default 0.8", inline=False)
-    embed.add_field(name="+thelp", value="show this list", inline=False)
+    embed.set_author(name="chatBot", icon_url="https://cdn.discordapp.com/app-icons/973145092980375552/da80b4dc5988b53c06461209dd2193c5.png")
+    embed.add_field(name="+talk", value="和ChatGPT聊天", inline=False)
+    embed.add_field(name="+set", value="設定機器人溫度0.0~1.0", inline=False)
+    embed.add_field(name="+now", value="顯示目前機器人溫度，預設0.8", inline=False)
+    embed.add_field(name="+thelp", value="顯示此列表", inline=False)
     await ctx.reply(embed=embed)
 
 @bot.command(name='now')
