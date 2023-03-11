@@ -27,4 +27,3 @@ if web_info != info:
         os.replace(file_source + g, file_destination + g)
 
     print('done')
-print(f'now version=>{web_info}')
