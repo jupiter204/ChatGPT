@@ -24,6 +24,8 @@ async def thelp(ctx):
     embed.add_field(name="+set", value="設定機器人溫度0.0~1.0", inline=False)
     embed.add_field(name="+now", value="顯示目前機器人溫度，預設0.8", inline=False)
     embed.add_field(name="+thelp", value="顯示此列表", inline=False)
+    embed.add_field(name="此機器人所有資料擷取自2022年以前", value="", inline=False)
+    embed.add_field(name="請將問題問清楚，不然有可能被機器人補字", value="", inline=False)
     await ctx.reply(embed=embed)
 
 @bot.command(name='now')
