@@ -2,7 +2,7 @@ import os
 import discord
 from discord.ext import commands
 from datetime import datetime, timezone, timedelta
-from chat import chat_prompt
+import chat
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -45,13 +45,13 @@ async def talk(ctx):
     print(f'{ctx.author} have a require')
     message = ctx.message.content
     user_message = "" + message[6 : len(message)]
-    await ctx.reply(f'{chat_prompt(level,user_message)}\n:from ChatGPT')    
+    await ctx.reply(f'{chat.chat_prompt(level,user_message)}\n:from ChatGPT')    
 
 @bot.command(name='stalk')
 async def talk(ctx):
     print(f'{ctx.author} have a require')
     message = ctx.message.content
     user_message = "" + message[6 : len(message)]
-    await ctx.author.reply(f'{chat_prompt(level,user_message)}\n:from ChatGPT')
+    await ctx.author.reply(f'{chat.chat_prompt(level,user_message)}\n:from ChatGPT')
 
 bot.run(discord_key)
