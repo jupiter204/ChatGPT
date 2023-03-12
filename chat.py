@@ -1,5 +1,6 @@
-import openai
 import os
+import openai
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,4 +20,4 @@ def chat_prompt(level,prompt):
         presence_penalty=0.6,
         stop=[" You:", " AI:"]
     )
-    return response.choices[0].text
+    return response.choices[0].text  # type: ignore
