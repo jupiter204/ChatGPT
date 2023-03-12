@@ -5,6 +5,12 @@ from datetime import datetime, timezone, timedelta
 import chat
 from dotenv import load_dotenv
 
+path = 'info.txt'
+f = open(path, 'r')
+info=f.read()
+f.close()
+print(info)
+
 load_dotenv()
 discord_key=os.getenv("discord")
 
