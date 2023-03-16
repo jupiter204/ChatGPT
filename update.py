@@ -26,7 +26,8 @@ if web_info != info:
     file_destination = './'
     get_files = os.listdir(file_source)
     for g in get_files:
-        os.replace(file_source + g, file_destination + g)
+        if g!=".vscode":
+            os.replace(file_source + g, file_destination + g)
 
     os.remove('./ChatGPT.zip')
     shutil.rmtree('./ChatGPT-main')
