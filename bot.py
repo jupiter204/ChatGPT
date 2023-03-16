@@ -1,4 +1,4 @@
-#1.2.5
+#1.3
 import os
 import discord
 from discord.ext import commands
@@ -49,16 +49,23 @@ async def set(ctx):
 
 @bot.command(name='talk')
 async def talk(ctx):
-    print(f'{ctx.author} have a require')
+    print(f'{ctx.author} have a chat require')
     message = ctx.message.content
     user_message = "" + message[6 : len(message)]
     await ctx.reply(f'{chat.chat_prompt(level,user_message)}\n:from ChatGPT')    
 
 @bot.command(name='stalk')
 async def stalk(ctx):
-    print(f'{ctx.author} have a require')
+    print(f'{ctx.author} have a chat require')
     message = ctx.message.content
     user_message = "" + message[6 : len(message)]
     await ctx.author.send(f'{chat.chat_prompt(level,user_message)}\n:from ChatGPT')
+
+@bot.command(name='image')
+async def image(ctx):
+    print(f'{ctx.author} have a image requier')
+    message = ctx.message.content
+    user_message = "" + message[6 : len(message)]
+    await ctx.reply(chat.image_prompt(user_message))
 
 bot.run(discord_key)

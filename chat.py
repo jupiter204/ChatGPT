@@ -1,4 +1,4 @@
-#1.2.5
+#1.3
 import os
 import openai
 import json
@@ -21,4 +21,12 @@ def chat_prompt(level,prompt):
         presence_penalty=0.6,
         stop=[" You:", " AI:"]
     )
-    return response.choices[0].text  # type: ignore
+    return response['choices'][0]['text'] # type: ignore
+
+def image_prompt(prompt):
+    response = openai.Image.create(
+    prompt=prompt,
+    n=1,
+    size="512x512"
+    )
+    return response['data'][0]['url'] # type: ignore
