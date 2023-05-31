@@ -1,4 +1,4 @@
-#1.3
+#1.4
 import os
 import openai
 import json
@@ -10,12 +10,12 @@ openai.api_key = os.getenv("openai")
 start_sequence = "\nAI:"
 restart_sequence = "\nYou:"
 
-def chat_prompt(level,prompt):
+def chat_prompt(level,prompt,token):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
         temperature=level,
-        max_tokens=4000,
+        max_tokens=token,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0.6,

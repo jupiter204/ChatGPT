@@ -1,5 +1,5 @@
 @echo off
-rem 1.3
+rem 1.4
 python -m pip install requests
 python update.py
 python -m pip install python_dotenv

@@ -1,4 +1,4 @@
-#1.3
+#1.4
 import os
 import discord
 from discord.ext import commands
@@ -18,6 +18,7 @@ discord_key=os.getenv("discord")
 bot = commands.Bot(command_prefix='+',intents=discord.Intents.all())
 
 level=0.8
+token=4000
 
 @bot.event
 async def on_ready():
@@ -53,14 +54,14 @@ async def talk(ctx):
     print(f'{ctx.author} have a chat require')
     message = ctx.message.content
     user_message = "" + message[6 : len(message)]
-    await ctx.reply(f'{chat.chat_prompt(level,user_message)}\n:from ChatGPT')    
+    await ctx.reply(f'{chat.chat_prompt(level,user_message,token)}\n:from ChatGPT')    
 
 @bot.command(name='stalk')
 async def stalk(ctx):
     print(f'{ctx.author} have a chat require')
     message = ctx.message.content
     user_message = "" + message[7 : len(message)]
-    await ctx.author.send(f'{chat.chat_prompt(level,user_message)}\n:from ChatGPT')
+    await ctx.author.send(f'{chat.chat_prompt(level,user_message,token)}\n:from ChatGPT')
 
 @bot.command(name='image')
 async def image(ctx):
@@ -68,5 +69,12 @@ async def image(ctx):
     message = ctx.message.content
     user_message = "" + message[7 : len(message)]
     await ctx.reply(chat.image_prompt(user_message))
+
+@bot.event
+async def on_message(msg):
+    if msg.channel == bot.get_channel(988075823091286122):
+        if msg.content.startswith('希望') and msg.author != bot.user:
+            print(f'{msg.author} have a wish')
+            await msg.channel.send(f'{chat.chat_prompt(0.5,msg.content,1000)}\n:from ChatGPT') 
 
 bot.run(discord_key)
